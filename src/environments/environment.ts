@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'dandelion',     // global variables, e.g backed API's
+  title: 'dandelion-analytics',
 };
 
 /*
