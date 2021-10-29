@@ -8,18 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class TokenEditorComponent implements OnInit {
 
   token: string
-  isDisabled: boolean
 
   constructor() {
     this.token = localStorage.getItem("token") || ''
-    this.isDisabled = true
   }
 
   ngOnInit(): void {
   }
 
-  changeToken(event: Event): void {
-    this.token = (<HTMLInputElement> event.target).value
+  changeToken(newToken: HTMLInputElement): void {
+    this.token = newToken.value
     localStorage.setItem("token", this.token)
   }
 

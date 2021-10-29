@@ -10,7 +10,7 @@ export class TextSimilarityComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    location.replace('/')
+   // location.replace('/')
   }
 
 }

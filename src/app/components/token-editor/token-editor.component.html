@@ -2,13 +2,14 @@
   <h3>Token editor</h3>
   Token: {{ token }}
   <br>
-  <label> You can edit your Dandelion API token here: </label>
+  <label> You can enter / edit your Dandelion API token here: </label>
   <br>
   <!-- [(ngModel)] allows us to tie a HTML tag value to a certain model value -->
-  <input type="text" [(ngModel)]="token">
+  <!-- <input type="text" (keyup)="changeToken($event)" [(ngModel)]="token">-->
   <br>
   <!-- Below is an example of one-way binding -->
+  <!--  <input type="text" (keyup)="changeToken($event)">-->
   <br>
-  <!-- <input type="text" [disabled]="!isDisabled" (keyup)="changeToken($event)"> -->
+  <input type="text" value="{{ token }}" #newToken>  <input type="button" value="Done" (click)="changeToken(newToken)">
   <br>
 </div>

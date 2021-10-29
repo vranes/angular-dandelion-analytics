@@ -19,7 +19,7 @@ const routes: Routes = [
     component: TokenEditorComponent
   },
   {
-    path: "entity-etraction",
+    path: "entity-extraction",
     component: EntityExtractionComponent,
     canActivate: [AuthGuard]
   },
