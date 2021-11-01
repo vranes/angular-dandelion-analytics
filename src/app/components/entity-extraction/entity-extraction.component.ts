@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
 import {EntityExtractionService} from "../../services/entity-extraction.service";
-import {Entity, Wrapper} from "../../model";
-import {Observable} from "rxjs";
-import { saveAs } from 'file-saver';
+import {Entity} from "../../model";
 
 @Component({
   selector: 'app-entity-extraction',
@@ -26,7 +23,6 @@ export class EntityExtractionComponent implements OnInit {
   }
 
   extractEntity(){
-    console.log(this.text)
     this.include = []
 
     if(this.abstract)
@@ -44,7 +40,7 @@ export class EntityExtractionComponent implements OnInit {
           entity.abstract = annotation.abstract || ''
           entity.categories = annotation.categories || ''
 
-          if (annotation.image) {     //TODO
+          if (annotation.image) {
              entity.image = annotation.image.full || ''
           }
           this.entities.push(entity)

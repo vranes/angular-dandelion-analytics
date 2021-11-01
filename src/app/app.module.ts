@@ -11,6 +11,7 @@ import { EntityExtractionComponent } from './components/entity-extraction/entity
 import { TextSimilarityComponent } from './components/text-similarity/text-similarity.component';
 import { LanguageDetectionComponent } from './components/language-detection/language-detection.component';
 import { SentimentAnalysisComponent } from './components/sentiment-analysis/sentiment-analysis.component';
+import { LoggerComponent } from './components/logger/logger.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SentimentAnalysisComponent } from './components/sentiment-analysis/sent
     EntityExtractionComponent,
     TextSimilarityComponent,
     LanguageDetectionComponent,
-    SentimentAnalysisComponent
+    SentimentAnalysisComponent,
+    LoggerComponent
     // definisu se sve dodatne komponente projekta: navbar, footer, rute
     // angular cli tool sam dodaje
   ],

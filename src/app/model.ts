@@ -5,24 +5,11 @@ export class Entity {
   categories: string[] = []
 }
 
-export class Image {
-  full: string = ''
-  thumbnail: string = ''
-}
-
-export interface Wrapper{
-  time: number,
-  annotations: any[],
-  lang: string,
-  langConfidence: number,
-  timestamp: string
+export interface EntityExtractionWrapper{
+  annotations: any[]
 }
 
 export interface TextSimilarityWrapper{
-  timestamp: string,
-  time: number,
-  lang: string,
-  langConfidence: number,
   similarity: number
 }
 
@@ -42,6 +29,24 @@ export interface SentimentAnalysisWrapper{
 export class Sentiment{
   score: number = -1
   type: string = ''
+}
+
+export class Log{
+
+  date: Date
+  action: string
+  url: string
+
+  constructor(date: Date, action: string, url: string) {
+    this.date = date
+    this.action = action
+    this.url = url
+  }
+
+  toString(): string{
+    return this.action + " " + this.url
+  }
+
 }
 
 
