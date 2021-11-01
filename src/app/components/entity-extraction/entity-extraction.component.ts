@@ -52,12 +52,9 @@ export class EntityExtractionComponent implements OnInit {
           entity.abstract = annotation.abstract || ''
           entity.categories = annotation.categories || ''
 
-          // if (annotation.image) {
-          //   entity.image = annotation.spot + ".jpg" || ''
-          //   this.downloadImage(annotation.image.full).subscribe((res) => {
-          //     saveAs(res, `${entity.spot}.jpg`)
-          //   })
-          // }
+          if (annotation.image) {
+             entity.image = annotation.image.full || ''
+          }
           this.entities.push(entity)
       })
     })

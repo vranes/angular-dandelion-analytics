@@ -19,15 +19,6 @@ export class EntityExtractionService {
   extractEntities(text: string, minConfidence: number, include: string[]): Observable<Wrapper>{
     this.token = this.tokenService.getToken()
     return this.httpClient.get<Wrapper>(`${this.apiUrl}?text=${text}&min_confidence=${minConfidence}&include=${include}&token=${this.token}`).pipe()
-
-    // this.httpClient.get<ArrayBuffer>(`${this.apiUrl}`,{
-    // text: text,
-    // min_confidence: minConfidence,
-    // include: include,
-    // token: this.token})
   }
 
-  downloadImage(imageUrl: string): Observable<Blob> {
-    return this.httpClient.get(imageUrl, { responseType: 'blob'}).pipe()
-  }
 }
