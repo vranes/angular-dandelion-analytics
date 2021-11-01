@@ -3,19 +3,19 @@ import {HttpClient} from "@angular/common/http";
 import {TokenService} from "./token.service";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {TextSimilarityWrapper, Wrapper} from "../model";
+import {SentimentAnalysisWrapper, Wrapper} from "../model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class TextSimilarityService {
+export class SentimentAnalysisService {
 
-  private readonly apiUrl = environment.textSimilarityApiUrl
+  private readonly apiUrl = environment.sentimentAnalysisApiUrl
 
   constructor(private httpClient: HttpClient, private tokenService: TokenService) { }
 
-  compareTexts(text1: string, text2: string): Observable<TextSimilarityWrapper>{
+  analyzeSentiment(text: string, language: string): Observable<SentimentAnalysisWrapper>{
     let token = this.tokenService.getToken()
-    return this.httpClient.get<TextSimilarityWrapper>(`${this.apiUrl}?text1=${text1}&text2=${text2}&token=${token}`)
+    return this.httpClient.get<SentimentAnalysisWrapper>(`${this.apiUrl}?text=${text}&lang=${language}&token=${token}`)
   }
 }

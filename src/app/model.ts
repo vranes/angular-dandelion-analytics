@@ -26,4 +26,22 @@ export interface TextSimilarityWrapper{
   similarity: number
 }
 
+export interface LanguageDetectionWrapper{
+  detectedLangs: Language[]
+}
+
+export class Language{
+  lang: string = ''
+  confidence: number = -1
+}
+
+export interface SentimentAnalysisWrapper{
+  sentiment: Sentiment
+}
+
+export class Sentiment{
+  score: number = -1
+  type: string = ''
+}
+
 
