@@ -1,1 +1,36 @@
-<p>sentiment-analysis works!</p>
+
+
+
+<div>
+  <h2>Sentiment Analysis</h2>
+  <br>
+  <br>
+  <h4> Enter your text here: </h4>
+  <input type="textarea" [(ngModel)]="text">
+  <br>
+  <br>
+  <h4> Language: </h4>
+  <div>
+    <input type="radio" name="language" id="auto" value="auto" checked (change)="setLanguage($event)">
+    <label for="auto">Auto</label>
+  </div>
+  <div>
+    <input type="radio" name="language" value="en" id="en" (change)="setLanguage($event)">
+    <label for="en">English</label>
+  </div>
+  <div>
+    <input type="radio" name="language" value="it" id="it" (change)="setLanguage($event)">
+    <label for="it">Italian</label>
+  </div>
+  <br>
+  <br>
+  <input type="button" value="Done" (click)="analyzeSentiment()">
+  <br>
+  <br>
+  <div *ngIf="sentiment.score != -1">
+    <label > Calculated text sentiment: {{ sentiment.type }} </label>
+    <br>
+    <label > Score: {{ sentiment.score }} </label>
+  </div>
+
+</div>

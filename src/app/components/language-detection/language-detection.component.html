@@ -1,1 +1,24 @@
-<p>language-detection works!</p>
+<div>
+  <h2>Language Detection</h2>
+  <br>
+  <br>
+  <h4> Enter your text here: </h4>
+  <input type="textarea" [(ngModel)]="text">
+  <br>
+  <br>
+  <div>
+    <input type="checkbox" id="clean" [(ngModel)]='clean'>
+    <label for="clean"> Clean </label>
+  </div>
+  <br>
+  <br>
+  <input type="button" value="Done" (click)="detectLanguage()">
+  <br>
+  <br>
+  <ol>
+    <li *ngFor="let language of languages">
+      <h4> {{ language.lang }} </h4>
+      Confidence:  {{ language.confidence }}
+    </li>
+  </ol>
+</div>

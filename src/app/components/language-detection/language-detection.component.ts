@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LanguageDetectionService} from "../../services/language-detection.service";
+import {Language} from "../../model";
 
 @Component({
   selector: 'app-language-detection',
@@ -7,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguageDetectionComponent implements OnInit {
 
-  constructor() { }
+  text: string = ''
+  clean: boolean = false
+  languages: Language[] = []
 
-  ngOnInit(): void {
-   // location.replace('/')
+  constructor(private service: LanguageDetectionService) { }
+
+  ngOnInit(): void {}
+
+  detectLanguage(){
+    this.languages = []
+    this.service.detectLanguage(this.text, this.clean).subscribe((wrapper) => {
+      wrapper.detectedLangs.forEach(language => {
+          this.languages.push(language)
+        })
+    })
   }
 
 }

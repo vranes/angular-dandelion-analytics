@@ -19,13 +19,6 @@ export class EntityExtractionComponent implements OnInit {
   categories: boolean = false
   private include: string[] = []
   entities: Entity[] = []
-  wrapper: Wrapper = new class implements Wrapper {
-    annotations: any[] = [];
-    lang: string = '';
-    langConfidence: number = 0;
-    time: number = 0;
-    timestamp: string = '';
-  }
 
   constructor(private service: EntityExtractionService){ }
 
@@ -43,16 +36,15 @@ export class EntityExtractionComponent implements OnInit {
     if(this.categories)
       this.include.push('categories')
 
-    this.service.extractEntities(this.text, this.minConfidence*0.01, this.include).subscribe((entities) => {
-      this.wrapper = entities
+    this.service.extractEntities(this.text, this.minConfidence*0.01, this.include).subscribe((wrapper) => {
       this.entities = []
-      this.wrapper.annotations.forEach(annotation =>{
-          var entity = new Entity
+      wrapper.annotations.forEach(annotation =>{
+          let entity = new Entity
           entity.spot = annotation.spot || ''
           entity.abstract = annotation.abstract || ''
           entity.categories = annotation.categories || ''
 
-          if (annotation.image) {
+          if (annotation.image) {     //TODO
              entity.image = annotation.image.full || ''
           }
           this.entities.push(entity)

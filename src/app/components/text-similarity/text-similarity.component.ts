@@ -17,8 +17,8 @@ export class TextSimilarityComponent implements OnInit {
   ngOnInit(): void {}
 
   compareTexts(){
-    this.service.compareTexts(this.text1, this.text2).subscribe((res) => {
-      this.similarity = res.similarity
+    this.service.compareTexts(this.text1, this.text2).subscribe((wrapper) => {
+      this.similarity = wrapper.similarity
     })
   }
 

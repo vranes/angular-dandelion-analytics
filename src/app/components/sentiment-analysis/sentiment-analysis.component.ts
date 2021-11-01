@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SentimentAnalysisService} from "../../services/sentiment-analysis.service";
+import {Sentiment} from "../../model";
 
 @Component({
   selector: 'app-sentiment-analysis',
@@ -7,10 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SentimentAnalysisComponent implements OnInit {
 
-  constructor() { }
+  text: string = ''
+  language: string = 'auto'
+  sentiment: Sentiment = new Sentiment()
+
+  constructor(private service: SentimentAnalysisService) { }
 
   ngOnInit(): void {
-   // location.replace('/')
+  }
+
+  setLanguage(event: Event){
+    this.language = (<HTMLInputElement>event.target).value
+  }
+
+  analyzeSentiment(){
+    this.sentiment = new Sentiment()
+    this.service.analyzeSentiment(this.text, this.language).subscribe(wrapper => {
+      this.sentiment = wrapper.sentiment
+    })
   }
 
 }
