@@ -29,4 +29,13 @@ export class SentimentAnalysisComponent implements OnInit {
     })
   }
 
+  calculateColor(): Color{
+    let t = (this.sentiment.score + 1) / 2
+    let r = Math.round(255 + (0 - 255)*t)
+    let g = Math.round(0 + (255 - 0)*t)
+    let b = 0
+    return "rgb("+ r +","+ g +","+ b +")"
+  }
+
+
 }

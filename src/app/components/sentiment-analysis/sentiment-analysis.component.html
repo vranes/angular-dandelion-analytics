@@ -27,8 +27,9 @@
   <input type="button" value="Done" (click)="analyzeSentiment()">
   <br>
   <br>
-  <div *ngIf="sentiment.score != -1">
-    <label > Calculated text sentiment: {{ sentiment.type }} </label>
+  <div *ngIf="sentiment.type != ''">
+    <label> Calculated text sentiment: </label>
+    <h3 [style.color]=calculateColor()>  {{ sentiment.type }} </h3>
     <br>
     <label > Score: {{ sentiment.score }} </label>
   </div>
