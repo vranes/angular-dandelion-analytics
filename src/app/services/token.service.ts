@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class TokenEditorService {
+export class TokenService {
 
   private token: string
 
@@ -11,7 +11,7 @@ export class TokenEditorService {
     this.token = localStorage.getItem("token") || ''
   }
 
-  changeToken(newToken: string): void {
+  setToken(newToken: string): void {
     this.token = newToken
     localStorage.setItem("token", this.token)
   }

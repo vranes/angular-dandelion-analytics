@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenService} from "../../services/token.service";
 
 @Component({
   selector: 'app-token-editor',
@@ -7,22 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TokenEditorComponent implements OnInit {
 
-  token: string
+  token: string = ''
 
-  constructor() {
-    this.token = localStorage.getItem("token") || ''
+  constructor(private tokenService: TokenService) {
+    // this.token = localStorage.getItem("token") || ''
   }
 
   ngOnInit(): void {
+    this.token = this.tokenService.getToken()
   }
 
   changeToken(newToken: HTMLInputElement): void {
     this.token = newToken.value
-    localStorage.setItem("token", this.token)
-  }
-
-  getToken(): string {
-    return this.token
+    this.tokenService.setToken(this.token)
   }
 
 }

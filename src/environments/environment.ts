@@ -2,9 +2,9 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+export const environment = {  // global variables, e.g backed API's
   production: false,
-  apiUrl: 'dandelion',     // global variables, e.g backed API's
+  entityExtractionApiUrl: 'https://api.dandelion.eu/datatxt/nex/v1',
   title: 'dandelion-analytics',
 };
 

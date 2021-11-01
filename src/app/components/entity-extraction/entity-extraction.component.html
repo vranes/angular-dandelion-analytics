@@ -1,1 +1,65 @@
-<p>entity-extraction works!</p>
+<div>
+  <h3>Entity extraction</h3>
+  <br>
+  <br>
+  <label> Enter your text here: </label>
+  <br>
+  <!-- [(ngModel)] allows us to tie a HTML tag value to a certain model value -->
+  <!-- <input type="text" (keyup)="changeToken($event)" [(ngModel)]="token">-->
+
+  <!-- Below is an example of one-way binding -->
+  <!--  <input type="text" (keyup)="changeToken($event)">-->
+  <br>
+  <input type="textarea" [(ngModel)]="text">
+  <br>
+  <br>
+  <label> Min confidence: {{minConfidence * 0.01}} </label>
+  <br>
+  <label> 0 </label><input type="range" id="min-confidence" name="min-confidence" min="0" max="100" [(ngModel)]="minConfidence"><label> 1 </label>
+  <br>
+  <br>
+  <label> Include: </label>
+  <br>
+  <br>
+  <div>
+    <input type="checkbox" id="abstract"
+           [(ngModel)]='abstract'>
+    <label for="abstract">Abstract</label>
+  </div>
+  <div>
+    <input type="checkbox" id="categories" [(ngModel)]='categories'>
+    <label for="categories">Categories</label>
+  </div>
+  <div>
+    <input type="checkbox" id="image" [(ngModel)]='image'>
+    <label for="image">Image</label>
+  </div>
+  <br>
+  <br>
+  <input type="button" value="Done" (click)="extractEntity()">
+  <br>
+  <label> </label>
+  <br>
+  <ol>
+    <li *ngFor="let entity of entities">
+
+      <h3> {{ entity.spot }} </h3>
+      <div *ngIf="abstract">
+        <h4> Abstract: </h4>
+        {{ entity.abstract }}
+      </div>
+
+      <br>
+      <div *ngIf="categories">
+        <h4> Categories: </h4>
+        {{ entity.categories}}
+      </div>
+      <br>
+      <div *ngIf="image">
+        <h4> Image: </h4>
+      <!--  <img [src]=entity.image [alt]=entity.image> -->
+      </div>
+
+    </li>
+  </ol>
+</div>
