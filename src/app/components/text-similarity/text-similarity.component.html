@@ -1,1 +1,18 @@
-<p>text-similarity works!</p>
+<div>
+  <h2>Text Similarity</h2>
+  <br>
+  <br>
+  <h4> Enter your texts here: </h4>
+  <input type="textarea" [(ngModel)]="text1">
+  <br>
+  <input type="textarea" [(ngModel)]="text2">
+  <br>
+  <br>
+  <input type="button" value="Done" (click)="compareTexts()">
+  <br>
+  <br>
+  <div *ngIf="similarity != -1">
+    <label > Calculated text similarity: {{ similarity }} </label>
+  </div>
+
+</div>

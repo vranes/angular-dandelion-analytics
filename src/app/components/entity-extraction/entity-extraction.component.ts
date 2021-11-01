@@ -27,7 +27,7 @@ export class EntityExtractionComponent implements OnInit {
     timestamp: string = '';
   }
 
-  constructor(private router: Router, private service: EntityExtractionService){ }
+  constructor(private service: EntityExtractionService){ }
 
   ngOnInit(): void {
   }

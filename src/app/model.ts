@@ -16,12 +16,14 @@ export interface Wrapper{
   lang: string,
   langConfidence: number,
   timestamp: string
-
-//
-// {time: 1, annotations: Array(2), lang: 'en', langConfidence: 1, timestamp: '2021-10-30T21:15:50.230'}
-// annotations: (2) [{…}, {…}]
-// lang: "en"
-// langConfidence: 1
-// time: 1
-// timestamp: "2021-10-30T21:15:50.230"
 }
+
+export interface TextSimilarityWrapper{
+  timestamp: string,
+  time: number,
+  lang: string,
+  langConfidence: number,
+  similarity: number
+}
+
+

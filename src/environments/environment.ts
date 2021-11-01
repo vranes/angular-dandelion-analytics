@@ -5,6 +5,7 @@
 export const environment = {  // global variables, e.g backed API's
   production: false,
   entityExtractionApiUrl: 'https://api.dandelion.eu/datatxt/nex/v1',
+  textSimilarityApiUrl:   'https://api.dandelion.eu/datatxt/sim/v1',
   title: 'dandelion-analytics',
 };
 
