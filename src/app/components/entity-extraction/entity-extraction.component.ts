@@ -24,6 +24,7 @@ export class EntityExtractionComponent implements OnInit {
 
   extractEntity(){
     this.include = []
+    this.entities = []
 
     if(this.abstract)
       this.include.push('abstract')
@@ -33,7 +34,6 @@ export class EntityExtractionComponent implements OnInit {
       this.include.push('categories')
 
     this.service.extractEntities(this.text, this.minConfidence*0.01, this.include).subscribe((wrapper) => {
-      this.entities = []
       wrapper.annotations.forEach(annotation =>{
           let entity = new Entity
           entity.spot = annotation.spot || ''
