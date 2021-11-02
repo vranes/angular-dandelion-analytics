@@ -16,6 +16,7 @@ export class EntityExtractionComponent implements OnInit {
   categories: boolean = false
   private include: string[] = []
   entities: Entity[] = []
+  errorMessage: string = ''
 
   constructor(private service: EntityExtractionService){ }
 
@@ -25,6 +26,7 @@ export class EntityExtractionComponent implements OnInit {
   extractEntity(){
     this.include = []
     this.entities = []
+    this.errorMessage = ''
 
     if(this.abstract)
       this.include.push('abstract')
@@ -45,7 +47,7 @@ export class EntityExtractionComponent implements OnInit {
           }
           this.entities.push(entity)
       })
-    })
+    }, error => this.errorMessage = "Language not recognized. Please edit your input.")
 
   }
 

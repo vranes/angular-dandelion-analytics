@@ -12,6 +12,7 @@ export class SentimentAnalysisComponent implements OnInit {
   text: string = ''
   language: string = 'auto'
   sentiment: Sentiment = new Sentiment()
+  errorMessage: string = ''
 
   constructor(private service: SentimentAnalysisService) { }
 
@@ -24,9 +25,10 @@ export class SentimentAnalysisComponent implements OnInit {
 
   analyzeSentiment(){
     this.sentiment = new Sentiment()
+    this.errorMessage = ''
     this.service.analyzeSentiment(this.text, this.language).subscribe(wrapper => {
       this.sentiment = wrapper.sentiment
-    })
+    }, error => this.errorMessage = "Language not recognized. Please edit your input.")
   }
 
   calculateColor(): string{

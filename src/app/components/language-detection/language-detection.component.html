@@ -21,4 +21,7 @@
       Confidence:  {{ language.confidence }}
     </li>
   </ol>
+  <div *ngIf="errorMessage != ''">
+    <label style="color: red"> {{ errorMessage }} </label>
+  </div>
 </div>

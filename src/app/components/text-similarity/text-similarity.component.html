@@ -14,5 +14,8 @@
   <div *ngIf="similarity != -1">
     <label > Calculated text similarity: {{ similarity }} </label>
   </div>
+  <div *ngIf="errorMessage != ''">
+    <label style="color: red"> {{ errorMessage }} </label>
+  </div>
 
 </div>

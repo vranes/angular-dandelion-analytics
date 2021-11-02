@@ -58,7 +58,9 @@
         <h4> Image: </h4>
         <img [src]=entity.image [alt]='image' width="400" height="400">
       </div>
-
     </li>
   </ol>
+  <div *ngIf="errorMessage != ''">
+    <label style="color: red"> {{ errorMessage }} </label>
+  </div>
 </div>

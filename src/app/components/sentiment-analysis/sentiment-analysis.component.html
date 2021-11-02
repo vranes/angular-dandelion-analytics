@@ -33,5 +33,8 @@
     <br>
     <label > Score: {{ sentiment.score }} </label>
   </div>
+  <div *ngIf="errorMessage != ''">
+    <label style="color: red"> {{ errorMessage }} </label>
+  </div>
 
 </div>
